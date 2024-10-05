@@ -1,64 +1,122 @@
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
+:root {
+  /* Just used as an example */
+  --font-family-base: system-ui;
+  --font-family-headings: system-ui;
+
+  /* Set a max width for a line */
+  --line-max-width: 65ch;
 }
 
-/* Make sure that font sizes change on different devices (text infllation") */
-html {
-  -moz-text-size-adjust: none;
-  -webkit-text-size-adjust: none;
-  text-size-adjust: none;
-}
+@layer reset {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
 
-/* Remove maring and set min-size and line height for body */
-body {
-  margin: 0;
-  min-height: 100svh;
-  line-height: 1.5;
-}
+  /* Make sure that font sizes change on different devices (text infllation") */
+  html {
+    -moz-text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+    /* When we use rlh as a measure, we need to set font-family here in `html` */
+    font-family: var(--font-family-base);
+  }
 
-/* Remove bottom border from elements */
-h1,
-h2,
-h3,
-h4,
-p,
-figure,
-blockquote,
-dl,
-dd {
-  margin-block-end: none;
-}
+  /* Remove maring and set min-size and line height for body */
+  body {
+    margin: 0;
+    min-height: 100svh;
+    line-height: 1.5;
+  }
 
-/* Set smaller line height for some elements */
-h1,
-h2,
-h3,
-h4,
-button,
-input,
-label {
-  line-height: 1.1;
-}
+  /* Remove bottom border from elements */
+  h1,
+  h2,
+  h3,
+  h4,
+  p,
+  figure,
+  blockquote,
+  dl,
+  dd {
+    margin-block-end: none;
+  }
 
-/* Remove list style for ul, ol but maintain the screen reader reprencentation a list */
-:where(ul, ol):where([class]) {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
+  /* Set smaller line height for some elements */
+  h1,
+  h2,
+  h3,
+  h4,
+  button,
+  input,
+  label {
+    line-height: 1.1;
+  }
 
-/* Set text wrap to look better for elements */
-h1,
-h2,
-h3,
-h4 {
-  text-wrap: balance;
-}
+  /* Remove list style for ul, ol but maintain the screen reader reprencentation a list */
+  :where(ul, ol):where([class]) {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
 
-p,
-li,
-figcaption {
-  text-wrap: pretty;
+  /* Set text wrap to look better for elements */
+  h1,
+  h2,
+  h3,
+  h4 {
+    text-wrap: balance;
+    font-family: var(--font-family-headings);
+  }
+
+  p,
+  li,
+  figcaption {
+    max-width: var(--line-max-width);
+    text-wrap: pretty;
+  }
+
+  /* When using a table or other elements, this will turn your font into a monospace-like font */
+  td,
+  math,
+  time[datetime*=':'] {
+    font-variant-numeric: tabular-nums lining-nums;
+  }
+
+  /* Set a margin on elements to scroll to so it won't nestle up to the top of the screen */
+  :target {
+    scroll-margin-block: 2rem; /* Fallback */
+    scroll-margin-block: 5rlh; /* Here we use 5 root line heights as the margin */
+  }
+
+  /* Only use smooth scrolling for people that is ok with it */
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
+  /* Use pointer on buttons that are not disabled */
+  button:not(:disabled) {
+    cursor: pointer;
+  }
+
+  /* reset image */
+  img,
+  picture {
+    max-width: 100%;
+    height: auto;
+    font-style: italic;
+    vertical-align: middle;
+  }
+
+  /* Set elements to use the chosen font-family */
+  input,
+  button,
+  textarea,
+  select {
+    font-family: inherit;
+    font-size: inherit;
+  }
 }
