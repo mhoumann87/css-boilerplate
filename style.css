@@ -1,64 +1,84 @@
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
+@layer reset {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
 
-/* Make sure that font sizes change on different devices (text infllation") */
-html {
-  -moz-text-size-adjust: none;
-  -webkit-text-size-adjust: none;
-  text-size-adjust: none;
-}
+  /* Make sure that font sizes change on different devices (text infllation") */
+  html {
+    -moz-text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+  }
 
-/* Remove maring and set min-size and line height for body */
-body {
-  margin: 0;
-  min-height: 100svh;
-  line-height: 1.5;
-}
+  /* Remove maring and set min-size and line height for body */
+  body {
+    margin: 0;
+    min-height: 100svh;
+    line-height: 1.5;
+  }
 
-/* Remove bottom border from elements */
-h1,
-h2,
-h3,
-h4,
-p,
-figure,
-blockquote,
-dl,
-dd {
-  margin-block-end: none;
-}
+  /* Remove bottom border from elements */
+  h1,
+  h2,
+  h3,
+  h4,
+  p,
+  figure,
+  blockquote,
+  dl,
+  dd {
+    margin-block-end: none;
+  }
 
-/* Set smaller line height for some elements */
-h1,
-h2,
-h3,
-h4,
-button,
-input,
-label {
-  line-height: 1.1;
-}
+  /* Set smaller line height for some elements */
+  h1,
+  h2,
+  h3,
+  h4,
+  button,
+  input,
+  label {
+    line-height: 1.1;
+  }
 
-/* Remove list style for ul, ol but maintain the screen reader reprencentation a list */
-:where(ul, ol):where([class]) {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
+  /* Remove list style for ul, ol but maintain the screen reader reprencentation a list */
+  :where(ul, ol):where([class]) {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
 
-/* Set text wrap to look better for elements */
-h1,
-h2,
-h3,
-h4 {
-  text-wrap: balance;
-}
+  /* Set text wrap to look better for elements */
+  h1,
+  h2,
+  h3,
+  h4 {
+    text-wrap: balance;
+  }
 
-p,
-li,
-figcaption {
-  text-wrap: pretty;
+  p,
+  li,
+  figcaption {
+    text-wrap: pretty;
+  }
+
+  /* Set a margin on elements to scroll to so it won't nestle up to the top of the screen */
+  :target {
+    scroll-margin-block: 2rem; /* Fallback */
+    scroll-margin-block: 5rlh; /* Here we use 5 root line heights as the margin */
+  }
+
+  /* Only use smooth scrolling for people that is ok with it */
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
+  /* Use pointer on buttons that are not disabled */
+  button:not(:disabled) {
+    cursor: pointer;
+  }
 }
