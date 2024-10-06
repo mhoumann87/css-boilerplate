@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 :root {
   /* Just used as an example */
   --font-family-base: system-ui;
@@ -61,18 +62,76 @@
     padding: 0;
   }
 
+=======
+@layer reset {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  /* Make sure that font sizes change on different devices (text infllation") */
+  html {
+    -moz-text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+  }
+
+  /* Remove maring and set min-size and line height for body */
+  body {
+    margin: 0;
+    min-height: 100svh;
+    line-height: 1.5;
+  }
+
+  /* Remove bottom border from elements */
+  h1,
+  h2,
+  h3,
+  h4,
+  p,
+  figure,
+  blockquote,
+  dl,
+  dd {
+    margin-block-end: none;
+  }
+
+  /* Set smaller line height for some elements */
+  h1,
+  h2,
+  h3,
+  h4,
+  button,
+  input,
+  label {
+    line-height: 1.1;
+  }
+
+  /* Remove list style for ul, ol but maintain the screen reader reprencentation a list */
+  :where(ul, ol):where([class]) {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+>>>>>>> bb9088849cd1e21d82ba9d37f8f69eaff36e9f82
   /* Set text wrap to look better for elements */
   h1,
   h2,
   h3,
   h4 {
     text-wrap: balance;
+<<<<<<< HEAD
     font-family: var(--font-family-headings);
+=======
+>>>>>>> bb9088849cd1e21d82ba9d37f8f69eaff36e9f82
   }
 
   p,
   li,
   figcaption {
+<<<<<<< HEAD
     max-width: var(--line-max-width);
     text-wrap: pretty;
   }
@@ -84,6 +143,11 @@
     font-variant-numeric: tabular-nums lining-nums;
   }
 
+=======
+    text-wrap: pretty;
+  }
+
+>>>>>>> bb9088849cd1e21d82ba9d37f8f69eaff36e9f82
   /* Set a margin on elements to scroll to so it won't nestle up to the top of the screen */
   :target {
     scroll-margin-block: 2rem; /* Fallback */
@@ -96,6 +160,7 @@
       scroll-behavior: smooth;
     }
   }
+<<<<<<< HEAD
 
   /* Use pointer on buttons that are not disabled */
   button:not(:disabled) {
@@ -118,5 +183,11 @@
   select {
     font-family: inherit;
     font-size: inherit;
+=======
+
+  /* Use pointer on buttons that are not disabled */
+  button:not(:disabled) {
+    cursor: pointer;
+>>>>>>> bb9088849cd1e21d82ba9d37f8f69eaff36e9f82
   }
 }
