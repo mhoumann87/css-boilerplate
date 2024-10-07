@@ -54,18 +54,34 @@
     line-height: 1.1;
   }
 
+  /* Remove list style for ul, ol but maintain the screen reader reprencentation a list */
+  :where(ul, ol):where([class]) {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+>>>>>>>>> Temporary merge branch 2
   /* Set text wrap to look better for elements */
   h1,
   h2,
   h3,
   h4 {
     text-wrap: balance;
+<<<<<<<<< Temporary merge branch 1
+=========
     font-family: var(--font-family-headings);
+>>>>>>>>> Temporary merge branch 2
   }
 
   p,
   li,
   figcaption {
+<<<<<<<<< Temporary merge branch 1
+    text-wrap: pretty;
+  }
+
+=========
     max-width: var(--line-max-width);
     text-wrap: pretty;
   }
@@ -84,6 +100,7 @@
     font-variant-numeric: tabular-nums lining-nums;
   }
 
+>>>>>>>>> Temporary merge branch 2
   /* Set a margin on elements to scroll to so it won't nestle up to the top of the screen */
   :target {
     scroll-margin-block: 2rem; /* Fallback */
@@ -96,6 +113,12 @@
       scroll-behavior: smooth;
     }
   }
+<<<<<<<<< Temporary merge branch 1
+
+  /* Use pointer on buttons that are not disabled */
+  button:not(:disabled) {
+    cursor: pointer;
+=========
 
   /* Use pointer on buttons that are not disabled */
   button:not(:disabled) {
@@ -118,5 +141,6 @@
   select {
     font-family: inherit;
     font-size: inherit;
+>>>>>>>>> Temporary merge branch 2
   }
 }
