@@ -3,6 +3,10 @@
   --font-family-base: system-ui;
   --font-family-headings: system-ui;
 
+  /* Set linr heights */
+  --lh-base: 1.6;
+  --lh-headings: 1.1;
+
   /* Set a max width for a line */
   --line-max-width: 65ch;
 }
@@ -27,7 +31,7 @@
   body {
     margin: 0;
     min-height: 100svh;
-    line-height: 1.5;
+    line-height: var(--lh-base);
   }
 
   /* Remove bottom border from elements */
@@ -51,7 +55,7 @@
   button,
   input,
   label {
-    line-height: 1.1;
+    line-height: var(--lh-headings);
   }
 
   /* Set text wrap to look better for elements */
